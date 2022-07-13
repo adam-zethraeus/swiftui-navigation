@@ -25,7 +25,7 @@
     <nav>
         <div class="wrapper">
             <h2>On This Page</h2>
-            <ol><li><a href="#initializers">Initializers</a><ul><li class="initializer"><a href="#binding.init?(unwrapping:)">init?(unwrapping:​)</a></li><li class="initializer"><a href="#binding.init?(unwrapping:case:)">init?(unwrapping:​case:​)</a></li></ul></li><li><a href="#methods">Methods</a><ul><li class="function"><a href="#binding.`case`(_:)">`case`(_:​)</a></li><li class="function"><a href="#binding.ispresent()">is​Present()</a></li><li class="function"><a href="#binding.ispresent(_:)">is​Present(_:​)</a></li></ul></li></ol>
+            <ol><li><a href="#initializers">Initializers</a><ul><li class="initializer"><a href="#binding.init?(unwrapping:)">init?(unwrapping:​)</a></li><li class="initializer"><a href="#binding.init?(unwrapping:case:)">init?(unwrapping:​case:​)</a></li></ul></li><li><a href="#methods">Methods</a><ul><li class="function"><a href="#binding.`case`(_:)">`case`(_:​)</a></li><li class="function"><a href="#binding.ispresent()">is​Present()</a></li><li class="function"><a href="#binding.ispresent(_:)">is​Present(_:​)</a></li><li class="function"><a href="#binding.removeduplicates(by:)">remove​Duplicates(by:​)</a></li><li class="function"><a href="#binding.removeduplicates()">remove​Duplicates()</a></li></ul></li></ol>
         </div>
     </nav>
 
@@ -279,13 +279,68 @@ can be passed to various presentation APIs.</p>
   <p>A binding to a boolean.</p>
 
 </div>
+<div role="article" class="function" id="binding.removeduplicates(by:)">
+    <h3>
+        <code><a href="#binding.removeduplicates(by:)">remove​Duplicates(by:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">removeDuplicates</span>(<span class="variable">by</span> <span class="variable">isDuplicate</span>: <span class="attribute">@</span><span class="attribute">escaping</span> (<span class="type">Value</span>, <span class="type">Value</span>) -&gt; <span class="type">Bool</span>) -&gt; <span class="keyword">Self</span>  </body></html></code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>Creates a binding that ignores writes to its wrapped value when equivalent to the new value.</p>
+
+</div>
+<div class="discussion">
+    <p>Useful to minimize writes to bindings passed to SwiftUI APIs. For example, <a href="https://gist.github.com/mbrandonw/70df235e42d505b3b1b9b7d0d006b049"><code>NavigationLink</code>
+may write <code>nil</code> twice</a> when dismissing its destination via the navigation bar's
+back button. Logic attached to this dismissal will execute twice, which may not be desirable.</p>
+
+</div>
+<h4>Parameters</h4>
+
+<table class="parameters">
+  <thead hidden>
+  <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <th>is​Duplicate</th>
+    <td><code class="type">@escaping (Value, Value) -&gt; Bool</code></td>
+    <td><p>A closure to evaluate whether two elements are equivalent, for purposes of filtering writes. Return <code>true</code> from this closure to indicate that the second element is a duplicate of the first.</p>
+</td>
+</tr>
+  </tbody>
+</table>
+</div>
+<div role="article" class="function" id="binding.removeduplicates()">
+    <h3>
+        <code><a href="#binding.removeduplicates()">remove​Duplicates()</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">removeDuplicates</span>() -&gt; <span class="keyword">Self</span>  </body></html></code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>Creates a binding that ignores writes to its wrapped value when equivalent to the new value.</p>
+
+</div>
+<div class="discussion">
+    <p>Useful to minimize writes to bindings passed to SwiftUI APIs. For example, <a href="https://gist.github.com/mbrandonw/70df235e42d505b3b1b9b7d0d006b049"><code>NavigationLink</code>
+may write <code>nil</code> twice</a> when dismissing its destination via the navigation bar's
+back button. Logic attached to this dismissal will execute twice, which may not be desirable.</p>
+
+</div>
+</div>
     </section>
         </article>
     </main>
 
     <footer>
         <p>
-    Generated on <time datetime="2021-11-16T18:44:19+0000">November 16, 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-rc.1</span>.
+    Generated on <time datetime="2022-07-13T14:36:17+0000">July 13, 2022</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-rc.1</span>.
 </p>
     </footer>
 </body>

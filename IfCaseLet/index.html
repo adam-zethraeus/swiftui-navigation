@@ -37,7 +37,8 @@
 </h1>
 
 <div class="declaration">
-<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">struct</span> <span class="type">IfCaseLet</span>&lt;<span class="variable">Enum</span>, <span class="variable">Case</span>, <span class="variable">IfContent</span>, <span class="variable">ElseContent</span>&gt;: <span class="type">View</span> <span class="keyword">where</span> <span class="type">IfContent</span>: <span class="type">View</span>  </body></html></code></pre>
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">struct</span> <span class="type">IfCaseLet</span>&lt;<span class="variable">Enum</span>, <span class="variable">Case</span>, <span class="variable">IfContent</span>, <span class="variable">ElseContent</span>&gt;: <span class="type">View</span>
+<span class="keyword">where</span> <span class="type">IfContent</span>: <span class="type">View</span>, <span class="type">ElseContent</span>: <span class="type">View</span>  </body></html></code></pre>
 </div>
 <div class="summary" role="doc-abstract">
     <p>A view that computes content by extracting a case from a binding to an enum and passing a
@@ -235,7 +236,7 @@ binding to the case's associated value to its content closure.</p>
 
     <footer>
         <p>
-    Generated on <time datetime="2021-11-16T18:44:19+0000">November 16, 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-rc.1</span>.
+    Generated on <time datetime="2022-07-13T14:36:17+0000">July 13, 2022</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-rc.1</span>.
 </p>
     </footer>
 </body>
